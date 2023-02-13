@@ -1,112 +1,112 @@
 package com.bridgelabz;
 
 public class Contact {
-    //setting the variables for the adress book
     private String firstName;
     private String lastName;
     private String address;
-    private int zip;
+    private String city;
+    private String state;
+    private String zip;
     private String phoneNumber;
     private String email;
 
-    public Contact() {
-    }
-
-    //method to get the detailes
-    Contact(String firstName, String lastName,String address,int zip, String email, String phoneNumber) {
-        //arching the encptulation
+    Contact(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address=address;
-        this.zip=zip;
-        this.email = email;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
         this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
-    /**
-     * @return the firstName
-     */
     public String getFirstName() {
         return firstName;
     }
 
-    /**
-     * @param firstName the firstName to set
-     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    /**
-     * @return the lastName
-     */
     public String getLastName() {
         return lastName;
     }
 
-    /**
-     * @param lastName the lastName to set
-     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    /**
-     * @return the address
-     */
     public String getAddress() {
         return address;
     }
 
-    /**
-     * @param address the address to set
-     */
     public void setAddress(String address) {
         this.address = address;
     }
 
-    /**
-     * @return the zip
-     */
-    public int getZip() {
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZip() {
         return zip;
     }
 
-    /**
-     * @param zip the zip to set
-     */
-    public void setZip(int zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
 
-    /**
-     * @return the phoneNumber
-     */
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    /**
-     * @param phoneNumber the phoneNumber to set
-     */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    /**
-     * @return the email
-     */
     public String getEmail() {
         return email;
     }
 
-    /**
-     * @param email the email to set
-     */
     public void setEmail(String email) {
         this.email = email;
     }
+
+    //Overriding equals method to compare Contact objects
+    @Override
+    public boolean equals(Object obj) {
+        boolean result = false;
+
+        // If the object is compared with itself then returns true
+        if(obj == this) {
+            return true;
+        }
+        Contact contact = (Contact)obj; // typecast obj to Contact so that we can compare data members
+        //Compare data members and return accordingly
+        if(contact.firstName.equals(this.firstName) && contact.lastName.equals(this.lastName)) {
+            result = true;
+        }
+        return result;
+    }
+    @Override
+    public String toString() {
+        return this.getFirstName() + " " + this.getLastName() + " " + this.getAddress() + " " + this.getPhoneNumber() + " " + this.getEmail();
+    }
 }
+
 
 
 
